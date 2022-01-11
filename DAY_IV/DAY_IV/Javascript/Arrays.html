@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var cars = ["BMW", "AUDI", "HONDA"];
+
+      // OR
+
+      var moreCars = new Array("TATA", "MARUTI");
+
+      for (var i in cars) {
+        console.log(cars[i]);
+      }
+
+      // ES6
+      for (var car of cars) {
+        console.log(car);
+      }
+
+      // filter -> return a new filtered Array based on a condition
+
+      var filteredCars = cars.filter(function (car) {
+        return car !== "AUDI";
+      });
+
+      // map -> returns a new Array (modified output)
+      var lowerCasedCars = cars.map(function (car, index) {
+        // filter
+        return car.toLowerCase();
+      });
+
+      // find -> find an item based on a condition
+      var courses = [10, 20, 30, 40];
+
+      //   var theCourse = courses.find(function (course) {
+      //     console.log(course);
+      //     return course.title === "Angular";
+      //   });
+
+      //   theCourse.title = "Typescript";
+
+      // push ,pop
+
+      //   cars.push("Hyundai");
+      //   console.log(cars.pop());
+
+      // splice -> change the original array
+
+      //   var splicedCourses = courses.splice(1, 2);
+      // courses.splice(1, 0, { title: "ECMAScript", price: 3000 });
+
+      // slice -> returns a portion of an array (does not change the original array)
+      var slicedCourses = courses.slice(0, 2);
+
+      console.log(cars.join("-"));
+
+      var arr = new Array(10);
+      arr.push(20);
+      //   arr.fill("*");
+    </script>
+  </head>
+  <body></body>
+</html>

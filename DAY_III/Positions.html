@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 150px;
+        width: 150px;
+        border: 2px solid gray;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .positioned {
+        background-color: lightcoral;
+        /* position: relative; */
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        z-index: 1;
+      }
+      .anotherpositioned {
+        position: absolute;
+        background-color: lightgoldenrodyellow;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="positioned"></div>
+    <div class="anotherpositioned"></div>
+
+    <div>Simple Div without position</div>
+  </body>
+</html>

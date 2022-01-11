@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   function Emp() {
+      //     this.salary = 100000;
+      //     var self = this;
+      //     setTimeout(function () {
+      //       console.log(self.salary);
+      //     }, 2000);
+      //   }
+
+      //   function Emp() {
+      //     this.salary = 100000;
+
+      //     setTimeout(() => console.log(this.salary), 2000);
+      //   }
+
+      //   var EmpArrow = () => {
+      //     this.sal = 300000;
+      //   };
+      //   var e = new EmpArrow();
+
+      for (var i = 0; i < 4; i++) {
+        setTimeout(function () {
+          console.log(i);
+        }, 2000);
+      }
+
+      for (let i = 0; i < 4; i++) {
+        setTimeout(function () {
+          console.log(i);
+        }, 2000);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

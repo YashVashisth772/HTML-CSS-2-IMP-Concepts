@@ -1,0 +1,11 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(237, 73, 53);
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+h1 {
+  border: 2px solid $primary-color;
+}

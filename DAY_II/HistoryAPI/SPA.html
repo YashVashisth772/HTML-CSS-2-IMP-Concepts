@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section img {
+        height: 150px;
+        width: 250px;
+        margin: 30px;
+        padding: 10px;
+        border: 1px solid grey;
+        border-radius: 10px;
+      }
+      img:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+
+      #techDetails {
+        margin: 30px;
+        padding: 10px;
+        height: 100px;
+        width: 900px;
+        border: 1px solid grey;
+        border-radius: 5px;
+      }
+      #techHeader {
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SPA using history API !</h1>
+    </header>
+    <main>
+      <article>
+        <section>
+          <img
+            src="https://ms314006.github.io/static/b7a8f321b0bbc07ca9b9d22a7a505ed5/97b31/React.jpg"
+            alt="React"
+          /><img
+            src="https://miro.medium.com/max/480/1*VKY-Ldkt-iHobItql7G_5w.png"
+            alt="Angular"
+          /><img
+            src="https://segwitz.com/wp-content/uploads/2021/06/vuejs-development-malaysia.jpeg"
+            alt="Vue"
+          />
+        </section>
+        <section>
+          <h2 id="techHeader"></h2>
+
+          <div id="techDetails">Click the tech to see details here..</div>
+        </section>
+      </article>
+    </main>
+
+    <script>
+      // server
+      var techs = [
+        {
+          id: 1,
+          name: "react",
+          description:
+            "React is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.",
+        },
+        {
+          id: 2,
+          name: "angular",
+          description:
+            "Angular is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS. ",
+        },
+        {
+          id: 3,
+          name: "vue",
+          description:
+            "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members. ",
+        },
+      ];
+
+      var allImages = document.querySelectorAll("img");
+      for (let index = 0; index < allImages.length; index++) {
+        allImages[index].addEventListener("click", function () {
+          manageState(techs[index]);
+        });
+      }
+
+      function manageState(theTech) {
+        window.history.pushState(theTech, theTech.name, theTech.name); // pushState(theObjectToBeStored,title,url)
+        SetDetails(theTech);
+      }
+      // back button in browser
+      window.addEventListener("popstate", function (e) {
+        SetDetails(e.state);
+      });
+
+      function SetDetails(theTech) {
+        var techHeader = document.querySelector("#techHeader");
+        var techDetails = document.querySelector("#techDetails");
+        techHeader.innerText = theTech.name.toUpperCase();
+        techDetails.innerText = theTech.description;
+      }
+    </script>
+  </body>
+</html>

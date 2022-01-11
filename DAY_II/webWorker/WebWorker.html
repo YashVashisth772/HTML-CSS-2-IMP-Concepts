@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   if(window.Worker)
+      var worker;
+      function HeavyLifting() {
+        worker = new Worker("worker.js");
+        worker.postMessage("Hello");
+        worker.onmessage = function (e) {
+          console.log("Message from worker : ", e.data);
+        };
+        console.log("Program Ended !");
+      }
+
+      function Terminator() {
+        worker.terminate();
+      }
+    </script>
+  </head>
+  <body>
+    <input
+      type="button"
+      value="Do Resource Intensive Task !"
+      onclick="HeavyLifting()"
+    />
+    <input
+      type="button"
+      value="Click Me !"
+      onclick="console.log('U Clicked !')"
+    />
+    <input type="button" value="Terminate !" onclick="Terminator()" />
+  </body>
+</html>

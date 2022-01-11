@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1. Object Literal Syntax
+      var player = {
+        name: "Djokovic",
+        sport: "Tennis",
+        isSeeded: true,
+        worldRanking: 1,
+        titlesWon: ["AO", "USO"],
+        address: {
+          country: "Serbia",
+        },
+        getDetails: function () {
+          console.log(
+            "The player " +
+              this.name +
+              " is ranked " +
+              this.worldRanking +
+              " in world ranking !"
+          );
+        },
+      };
+
+      //   player.getDetails();
+      //   var JSONData = JSON.stringify(player);
+      //   var jsObject = JSON.parse(JSONData);
+
+      // 2. Object Constructor
+      var company = new Object();
+      company.name = "Microsoft";
+      company.location = "Redmond";
+      company.getDetails = function () {
+        return "The company " + this.name + " is located at " + this.location;
+      };
+
+      // 3. Custom Constructor - template
+      function Emp(name, sal, city) {
+        this.name = name || "Unknown";
+        this.salary = sal || 0;
+        this.city = city || "Unknown";
+        this.getDetails = function () {
+          console.log("The emp " + this.name + " is located at " + this.city);
+        };
+      }
+
+      var emp = new Emp("Aniket", 20000, "Pune");
+      emp.getDetails();
+
+      var empOne = new Emp("Amol", 400000, "Mumbai");
+      empOne.getDetails();
+    </script>
+  </head>
+  <body></body>
+</html>

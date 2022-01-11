@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      var person = {
+        name: "Amit",
+        greet: function (theGreeting) {
+          console.log(theGreeting + " " + theName);
+        },
+      };
+
+      //   person.greet("Hey !");
+      var anotherperson = { name: "Aniket" };
+      var someanotherperson = { name: "Ram" };
+
+      person.greet.call(anotherperson, "Hello"); // invoke()
+      person.greet.apply(anotherperson, ["Hola"]); // invoke()
+
+      // bind
+
+      var greetWithBindedContext = person.greet.bind(anotherperson);
+      greetWithBindedContext("Bye");
+
+      var greetWithBindedContext = person.greet.bind(someanotherperson);
+      // 100 lines of code
+      greetWithBindedContext("Hi");
+    </script>
+  </head>
+  <body></body>
+</html>

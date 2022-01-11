@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+      /* Use classes */
+      header {
+        background-color: orange;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .row {
+        display: flex;
+        height: 80%;
+      }
+
+      .menu ul {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+      }
+      .menu li {
+        background-color: lightblue;
+        padding: 10px;
+        border-bottom: 2px solid white;
+      }
+
+      .menu a {
+        text-decoration: none;
+      }
+      .col-2 {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        background-color: lightpink;
+      }
+      footer {
+        background-color: lightgray;
+        text-align: center;
+        padding: 10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        header,
+        footer {
+          display: none;
+        }
+        [class*="col"] {
+          width: 50%;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        header,
+        footer {
+          display: none;
+        }
+        [class*="col"] {
+          width: 100%;
+        }
+        .row {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>News Center</h1>
+    </header>
+    <main class="row">
+      <nav class="col-1">
+        <div class="menu">
+          <ul>
+            <li>World News</li>
+            <li>Sports News</li>
+            <li>Bollywood News</li>
+          </ul>
+        </div>
+      </nav>
+      <section class="col-2">
+        <article>
+          <h2>IPL started !</h2>
+          <p>SRH out of the competition... More matches to follows</p>
+        </article>
+        <article>
+          <h2>Cred avertisement !</h2>
+          <p>Mr. Chopra in new avatar in CRED avt....</p>
+        </article>
+      </section>
+    </main>
+    <footer>@Coyright 2021</footer>
+  </body>
+</html>

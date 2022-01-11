@@ -1,0 +1,12 @@
+{
+  "name": "SASS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:watch": "sass ./sass/styles.scss ./css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

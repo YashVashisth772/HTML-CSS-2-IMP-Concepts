@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .box {
+        padding: 20px;
+      }
+
+      .box-1 {
+        background-color: rgb(209, 245, 209);
+      }
+      .box-2 {
+        background-color: rgb(223, 233, 132);
+      }
+      .box-3 {
+        background-color: rgb(30, 190, 130);
+      }
+      .box-4 {
+        background-color: rgb(130, 90, 130);
+      }
+      .box-5 {
+        background-color: rgb(130, 19, 30);
+      }
+      .box-6 {
+        background-color: rgb(30, 190, 30);
+      }
+      .box-7 {
+        background-color: rgb(110, 10, 130);
+      }
+
+      .boxes {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        grid-template-columns: repeat(4, 1fr);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="box box-1">box-1</div>
+      <div class="box box-2">box-2</div>
+      <div class="box box-3">box-3</div>
+      <div class="box box-4">box-4</div>
+      <div class="box box-5">box-5</div>
+      <div class="box box-6">box-6</div>
+      <div class="box box-7">box-7</div>
+    </div>
+  </body>
+</html>

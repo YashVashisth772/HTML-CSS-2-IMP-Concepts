@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   if (true) {
+      //     let x = 100; // block scoped variable
+      //   }
+      //   console.log(x); // Error !
+
+      //   console.log(x); // Error -> let stops varaible hoisting
+      //   let x = 100;
+
+      let y;
+      y = 200;
+      var z = 300;
+      // 10 lines
+      //   let y = 300; // Error !
+
+      //   const PI; // Error !
+      //   PI = 3.14;
+
+      const PI = 3.14;
+      //   PI = 3.1453; // Error !
+
+      const company = { name: "Google" };
+      company.name = "Microsoft";
+      //   company = {}; // Error !
+
+      //   Math.PI = 122222;
+      //   console.log(Math.PI);
+
+      //   var cars = ["BMW", "AUDI", "HONDA"];
+      //   var moreCars = new Array("TATA", "MARUTI");
+      //   var allCars = [...cars, ...moreCars]; // Spread Operator
+      //   cars[0] = "FERRARI";
+
+      //   var carsObj = [{ name: "BMW" }, { name: "AUDI" }];
+      //   var moreCarsObj = [{ name: "TATA" }, { name: "MARUTI" }];
+      //   var allCarsObj = [...carsObj, ...moreCarsObj];
+      //   carsObj[0].name = "FERRARI";
+
+      // Spread with Objects
+      var person = { pname: "Djokovic", sport: "Tennis" };
+      var player = { ...person, worldRanking: 1, sport: "Lawn Tennis" };
+
+      // Destructuring - With Arrays
+      var cars = ["BMW", "AUDI", "HONDA", [10, 20, 30]];
+      //var firstCar, secondCar;
+      //   firstCar = cars[0];
+      //   secondCar = cars[1];
+
+      // OR
+      var [firstCar, , secondCar, thirdCar = "Unknown"] = cars; // useState()
+
+      // Destructuring - With Objects
+
+      var player = {
+        pname: "Djokovic",
+        sport: "Tennis",
+        stats: {
+          isSeeded: true,
+          worldRanking: 1,
+          titlesWon: 20,
+        },
+      };
+
+      //   var pname, sport;
+      //   pname = player.pname;
+      //   sport = player.sport;
+
+      // OR
+
+      var {
+        sport,
+        pname,
+        stats: { worldRanking },
+      } = player;
+
+      // ES8
+      var { sport, pname, ...otherprops } = player;
+
+      // Functions
+
+      // Default parameter
+      function PrintBook(
+        author = "Dr. APJ Abdul Kalam",
+        title = "India 2020",
+        publisher = "Jaico"
+      ) {
+        // author = author || "Unknown";
+        // title = title || "Unknown";
+        console.log(author, title, publisher);
+      }
+
+      PrintBook();
+      //   PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
+      PrintBook(undefined, "Wings Of Fire", "Westland");
+
+      //   const arr = [10, 20, [1, 2]];
+      //   let [a, c, [p,q]] = arr;
+      //   console.log(p);
+
+      function PrintBooks(author, ...titles) {
+        console.log(author, titles);
+      }
+
+      PrintBooks();
+      PrintBooks("Ranjeet Desai", "Shreeman Yogi", "Pawankhind", "Swami");
+      PrintBooks("Sachin Tendulkar", "Playing It My Way");
+
+      // arrow functions
+      var Add = function (x, y) {
+        return x + y;
+      };
+
+      // Arrow
+      var Add = (x, y) => {
+        return x + y;
+      };
+
+      // OR
+
+      var Add = (x, y) => x + y;
+      console.log("The addition is : " + Add(20, 30));
+
+      var Square = (x) => x * x;
+      console.log(Square(2));
+
+      var NoArgs = () => console.log("No Args Functions");
+
+      cars.map(function (car) {
+        return car.toLowerCase();
+      });
+
+      // OR
+
+      cars.map((car) => car.toLowerCase());
+    </script>
+  </head>
+  <body></body>
+</html>

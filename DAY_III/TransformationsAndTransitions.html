@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0px;
+      }
+      .transformed {
+        height: 150px;
+        width: 150px;
+        border: 2px solid gray;
+
+        /*OR*/
+        /* border-style: solid;
+        border-width: 2px;
+        border-color:grey; */
+        border-radius: 5px;
+        padding: 10px;
+        transition: width 2s, height 1s;
+
+        /* margin: 60px; */
+        /* transform: rotateY(70deg); */
+        /* transform: translate(100px, 100px); */
+      }
+      .transformed:hover {
+        width: 300px;
+        height: 300px;
+        /* transform: scale(1.5); */
+        /* transform: skew(40deg); */
+        /* transform: rotateY(50deg); */
+        /* OR */
+        /* transition-property: all;
+        transition-duration: 2s;
+        transition-delay: 2s; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="transformed">Transformed !</div>
+  </body>
+</html>

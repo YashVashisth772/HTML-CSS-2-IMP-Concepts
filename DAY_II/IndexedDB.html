@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="txtMovieId">Movie Id : </label
+      ><input type="text" id="txtMovieId" placeholder="Movie Id goes here.." />
+      <br />
+      <label for="txtMovieName">Movie Name : </label
+      ><input
+        type="text"
+        id="txtMovieName"
+        placeholder="Movie Name goes here.."
+      />
+      <br />
+      <label for="txtMovieBudget">Movie Budget : </label
+      ><input
+        type="text"
+        id="txtMovieBudget"
+        placeholder="Movie Budget goes here.."
+      />
+      <br />
+      <label for="txtMovieTheatre">Movie Theatre : </label
+      ><input
+        type="text"
+        id="txtMovieTheatre"
+        placeholder="Movie Theatre goes here.."
+      />
+      <br />
+      <input type="button" value="Add !" id="btnAdd" />
+      <input type="button" value="Get !" id="btnGet" onclick="getMovie()" />
+    </form>
+
+    <script>
+      window.indexedDB =
+        window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB;
+      var db, moviesOS;
+      if (!window.indexedDB) {
+        alert("Your browser does not support IndexedDB !"); // fallback
+      } else {
+        // connection
+        // Db created
+        // insert values
+        // get the values
+
+        var myConnection = window.indexedDB.open("moviesDB", 2);
+        myConnection.onerror = function (e) {
+          console.log("Error opening the database", e);
+        };
+
+        myConnection.onsuccess = function (e) {
+          console.log("Connection opened successfully");
+          db = e.target.result;
+        };
+
+        myConnection.onupgradeneeded = function (e) {
+          db = e.target.result;
+          // to add more objectStore in MoviesDB
+          console.log(db.objectStoreNames);
+          moviesOS = db.createObjectStore("movies"); // collection | table
+          moviesOS.createIndex("id", "id", { unique: true });
+          document
+            .querySelector("#btnAdd")
+            .addEventListener("click", addMovieToStore);
+        };
+      }
+
+      function addMovieToStore() {
+        // get info from form
+        var movieId = document.querySelector("#txtMovieId").value;
+        var movieName = document.querySelector("#txtMovieName").value;
+        var movieBudget = document.querySelector("#txtMovieBudget").value;
+        var movieTheatre = document.querySelector("#txtMovieTheatre").value;
+
+        // a transaction
+        var transaction = db.transaction(["movies"], "readwrite");
+        var store = transaction.objectStore("movies");
+        // add a new object store
+
+        var newMovie = {
+          id: movieId,
+          name: movieName,
+          budget: movieBudget,
+          theatre: movieTheatre,
+        };
+
+        // ajax -> response (success)
+
+        store.add(newMovie, movieId); // insert
+
+        // store.put()
+        // store.delete();
+      }
+
+      function getMovie() {
+        // db.transaction
+        var transaction = db.transaction(["movies"], "readwrite");
+        var store = transaction.objectStore("movies");
+
+        var theMovieId = document.querySelector("#txtMovieId").value;
+        var req = store.get(theMovieId);
+        req.onsuccess = function (e) {
+          console.log(e.target.result);
+        };
+      }
+    </script>
+  </body>
+</html>
